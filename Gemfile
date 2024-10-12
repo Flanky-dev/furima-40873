@@ -88,3 +88,6 @@ gem 'payjp'
 
 gem 'gon'
 
+group :production do
+  gem 'pg'
+end
