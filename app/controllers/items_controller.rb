@@ -52,7 +52,9 @@ class ItemsController < ApplicationController
 
   # 出品者確認
   def check_item_owner
-    redirect_to root_path, alert: '編集権限がありません' if @item.user_id != current_user.id
+    return unless @item.user_id != current_user.id || @item.order.present?
+
+    redirect_to root_path, alert: '編集権限がありません'
   end
 
   # Strong Parameters
